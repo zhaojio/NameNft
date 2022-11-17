@@ -1,6 +1,6 @@
 ## Overview
     
-    Mint the username into NFT, make the username on the chain unique, turn it into a digital asset, and can be used between multiple chains.
+Mint the username into NFT, make the username on the chain unique, turn it into a digital asset, and can be used between multiple chains.
 
 
 ## How It Work
@@ -16,7 +16,7 @@
     The nft is minted by a string (username) and can be used on multiple chains, and the nft holder has a unique username on multiple chains.
 
 ## Why have the right to own and use
-    If the user name is only minted on multiple chains at the time of registration, due to the problem of time difference, it cannot be guaranteed that the minting will be successful on multiple chains. For example, if two addresses are minted on two chains at the same time, conflicts will occur. After the ownership is introduced and only exists on one chain, when casting, first query whether the user name on other chains exists, which can ensure uniqueness, but at this time the user name can only exist on one chain, and the usability is limited, so it needs to be introduced again The concept of usage rights can guarantee uniqueness and can be used in more places.
+If the user name is only minted on multiple chains at the time of registration, due to the problem of time difference, it cannot be guaranteed that the minting will be successful on multiple chains. For example, if two addresses are minted on two chains at the same time, conflicts will occur. After the ownership is introduced and only exists on one chain, when casting, first query whether the user name on other chains exists, which can ensure uniqueness, but at this time the user name can only exist on one chain, and the usability is limited, so it needs to be introduced again The concept of usage rights can guarantee uniqueness and can be used in more places.
 
 ## Use Cases(assumption)
 
