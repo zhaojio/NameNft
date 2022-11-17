@@ -1,6 +1,6 @@
 ## Overview
     
-Mint the username into NFT, make the username on the chain unique, turn it into a digital asset, and can be used between multiple chains.
+Minting the username into NFT, make the username on the chain unique, turn it into a digital asset, and can be used between multiple chains.
 
 
 ## How It Work
