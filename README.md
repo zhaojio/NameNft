@@ -3,7 +3,7 @@
 Minting the username into NFT, make the username on the chain unique, turn it into a digital asset, and can be used between multiple chains.
 
 
-## How It Work
+## How it works
 
 1. Publish a dapp named NameNftDapp on all supported chains, providing the function of minting nft, an nft is a string, such as ‘zhaojie’.
 2. When minting nft through NameNftDApp, set ownership and usage rights for nft.
