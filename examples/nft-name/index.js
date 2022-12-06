@@ -1,16 +1,16 @@
 'use strict';
-const { sleep } = require('../../utils');
+const {sleep} = require('../../utils');
 
 const {
     getDefaultProvider,
     Contract,
-    constants: { AddressZero },
-    utils: { keccak256, defaultAbiCoder },
+    constants: {AddressZero},
+    utils: {keccak256, defaultAbiCoder},
 } = require('ethers');
 const {
-    utils: { deployContract },
+    utils: {deployContract},
 } = require('@axelar-network/axelar-local-dev');
-const { deployUpgradable } = require('@axelar-network/axelar-gmp-sdk-solidity');
+const {deployUpgradable} = require('@axelar-network/axelar-gmp-sdk-solidity');
 
 const ExampleProxy = require('../../artifacts/examples/Proxy.sol/ExampleProxy.json');
 const NameNft = require('../../artifacts/examples/nft-name/NftName.sol/NameNft.json');
@@ -38,7 +38,7 @@ async function test(chains, wallet, options) {
 
     console.log('--- Initially ---');
 
-    const gas = { value: BigInt(Math.floor(3e5 * 10)) };
+    const gas = {value: BigInt(Math.floor(3e5 * 10))};
 
     for (const chain of chains) {
         const provider = getDefaultProvider(chain.rpc);
