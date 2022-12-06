@@ -14,20 +14,30 @@ contract NftLinker is ERC721, AxelarExecutable, Upgradable {
     using StringToAddress for string;
     using AddressToString for address;
 
+    uint256 public vvalue;
+
     error AlreadyInitialized();
 
     mapping(uint256 => bytes) public original; //abi.encode(originaChain, operator, tokenId);
+    mapping(address => string) public addresslist;
     string public chainName; //To check if we are the source chain.
     IAxelarGasService public immutable gasReceiver;
 
     constructor(address gateway_, address gasReceiver_) ERC721('Axelar NFT Linker', 'ANL') AxelarExecutable(gateway_) {
         gasReceiver = IAxelarGasService(gasReceiver_);
+        //addresslist[0x1AE978F987e9d4CCC32850D995C62F3f6e575EfD] = 'hello';
+        //vvalue = 100;
     }
 
     function _setup(bytes calldata params) internal override {
         string memory chainName_ = abi.decode(params, (string));
         if (bytes(chainName).length != 0) revert AlreadyInitialized();
         chainName = chainName_;
+        vvalue = 100;
+    }
+
+    function setvvalue() public {
+        vvalue = 10;
     }
 
     //The main function users will interract with.
@@ -112,6 +122,8 @@ contract NftLinker is ERC721, AxelarExecutable, Upgradable {
     }
 
     function contractId() external pure returns (bytes32) {
-        return keccak256('example');
+        //Deployed NftLinker for Avalanche at 0xB4eB9E8f1Fb0c19a7c2D1E4Ba031F8fC13B1AAD6..
+        //addresslist[0x1AE978F987e9d4CCC32850D995C62F3f6e575EfD] = 'hello';
+        return keccak256('zhaojie'); //0x6fd43e7cffc31bb581d7421c8698e29aa2bd8e7186a394b85299908b4eb9b175
     }
 }

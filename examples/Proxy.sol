@@ -6,6 +6,6 @@ import { Proxy } from '@axelar-network/axelar-gmp-sdk-solidity/contracts/upgrada
 
 contract ExampleProxy is Proxy {
     function contractId() internal pure override returns (bytes32) {
-        return keccak256('example');
+        return keccak256('zhaojie');
     }
 }

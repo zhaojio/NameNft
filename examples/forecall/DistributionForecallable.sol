@@ -77,6 +77,6 @@ contract DistributionForecallable is AxelarForecallable, Upgradable {
     }
 
     function contractId() external pure returns (bytes32) {
-        return keccak256('example');
+        return keccak256('zhaojie');
     }
 }

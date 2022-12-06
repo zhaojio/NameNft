@@ -22,7 +22,7 @@ async function deploy(chain, wallet) {
 async function test(chains, wallet, options) {
     const args = options.args || [];
     const getGasPrice = options.getGasPrice;
-
+    
     for (const chain of chains) {
         const provider = getDefaultProvider(chain.rpc);
         chain.wallet = wallet.connect(provider);
@@ -34,19 +34,20 @@ async function test(chains, wallet, options) {
     const message = args[2] || `Hello ${destination.name} from ${source.name}, it is ${new Date().toLocaleTimeString()}.`;
 
     async function logValue() {
-        console.log(`value at ${destination.name} is "${await destination.contract.value()}"`);
+        // console.log(`value at ${destination.name} is "${await destination.contract.value()}"`);
+        console.log(await destination.contract.value());
     }
 
     console.log('--- Initially ---');
     await logValue();
 
-    //Set the gasLimit to 3e5 (a safe overestimate) and get the gas price.
+    // Set the gasLimit to 3e5 (a safe overestimate) and get the gas price.
     const gasLimit = 3e5;
     const gasPrice = await getGasPrice(source, destination, AddressZero);
 
-    const tx = await source.contract.setRemoteValue(destination.name, destination.executableSample, message, {
-        value: BigInt(Math.floor(gasLimit * gasPrice)),
-    });
+    console.log(destination.name);
+    console.log(destination.executableSample);
+    const tx = await source.contract.setRemoteValue(destination.name, destination.executableSample, message, { value: BigInt(Math.floor(3e5*99)), gasLimit: BigInt(Math.floor(3e5 * 100)) });
     await tx.wait();
 
     while ((await destination.contract.value()) !== message) {

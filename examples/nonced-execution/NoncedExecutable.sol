@@ -72,6 +72,6 @@ abstract contract NoncedExecutable is AxelarExecutable, Upgradable {
     ) internal virtual {}
 
     function contractId() external pure returns (bytes32) {
-        return keccak256('example');
+        return keccak256('zhaojie');
     }
 }

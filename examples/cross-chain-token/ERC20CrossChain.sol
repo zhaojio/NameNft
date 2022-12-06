@@ -74,6 +74,6 @@ contract ERC20CrossChain is AxelarExecutable, ERC20, Upgradable, IERC20CrossChai
     }
 
     function contractId() external pure returns (bytes32) {
-        return keccak256('example');
+        return keccak256('zhaojie');
     }
 }

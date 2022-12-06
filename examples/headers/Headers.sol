@@ -85,6 +85,6 @@ contract Headers is AxelarExecutable, Upgradable {
     }
 
     function contractId() external pure returns (bytes32) {
-        return keccak256('example');
+        return keccak256('zhaojie');
     }
 }

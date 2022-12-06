@@ -30,12 +30,14 @@ async function deploy(chain, wallet) {
 async function test(chains, wallet, options) {
     const args = options.args || [];
     const getGasPrice = options.getGasPrice;
+
     for (const chain of chains) {
         chain.provider = getDefaultProvider(chain.rpc);
         chain.wallet = wallet.connect(chain.provider);
         chain.sender = new Contract(chain.sendAckSender, SendAckSender.abi, chain.wallet);
         chain.receiver = new Contract(chain.sendAckReceiver, SendAckReceiver.abi, chain.wallet);
     }
+    
     const source = chains.find((chain) => chain.name === (args[0] || 'Avalanche'));
     const destination = chains.find((chain) => chain.name === (args[1] || 'Fantom'));
     const message = args[2] || `Hello, the time is ${time}.`;
@@ -44,11 +46,11 @@ async function test(chains, wallet, options) {
     async function print() {
         const length = await destination.receiver.messagesLength();
         console.log(
-            `SendAckReceiverImplementation at ${destination.name} has ${length} messages and the last one is "${
-                length > 0 ? await destination.receiver.messages(length - 1) : ''
+            `SendAckReceiverImplementation at ${destination.name} has ${length} messages and the last one is "${length > 0 ? await destination.receiver.messages(length - 1) : ''
             }".`,
         );
     }
+
     function sleep(ms) {
         return new Promise((resolve) => {
             setTimeout(() => {
@@ -56,6 +58,7 @@ async function test(chains, wallet, options) {
             }, ms);
         });
     }
+
     console.log('--- Initially ---');
     await print();
 

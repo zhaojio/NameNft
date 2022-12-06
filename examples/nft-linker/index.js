@@ -58,9 +58,21 @@ async function test(chains, wallet, options) {
             'nftLinker',
         );
         chain.erc721 = new Contract(chain.erc721, ERC721.abi, chain.wallet);
+        chain.nftLinker = new Contract(chain.nftLinker,NftLinker.abi,chain.wallet);
+
+        //console.log(await chain.erc721.setValue());
+        // console.log(await chain.contract.vvalue());
     }
     const destination = chains.find((chain) => chain.name == (args[1] || 'Fantom'));
     const originChain = chains.find((chain) => chain.name == (args[0] || 'Avalanche'));
+
+    // console.log(await (await destination.contract.vvalue()).wait());
+    // console.log(await destination.contract.testValue());
+    // console.log(await originChain.nftLinker);
+    console.log(await originChain.nftLinker.vvalue());
+    console.log(await originChain.nftLinker.setvvalue());
+    console.log(await originChain.nftLinker.vvalue());
+    console.log(await originChain.nftLinker.owner());
 
     const ownerOf = async (chain = originChain) => {
         const operator = chain.erc721;
@@ -98,6 +110,8 @@ async function test(chains, wallet, options) {
 
     const owner = await ownerOf();
     const source = chains.find((chain) => chain.name === owner.chain);
+
+    return;
     if (source === destination) throw new Error('Token is already where it should be!');
 
     console.log('--- Initially ---');
