@@ -1,25 +1,28 @@
-
-## 概述
+## Overview
     
-    将用户名称铸造成nft，让链上的名称具有唯一性，变成数字资产，并且可以在多个链之间使用。
+Minting the username into NFT, make the username on the chain unique, turn it into a digital asset, and can be used between multiple chains.
 
 
-## 如何实现
+## How it works
 
-1. 在所有支持的链上发布名为NameNft的dapp，提供铸造nft的功能，一个nft为一个字符串，如zhaojie。
-2. 通过NameNftDApp铸造nft时，为nft设置拥有权和使用权。
-3. 一个nft的拥有权，只存在于唯一的一条链上，使用权可以在多个链上同时存在。
-4. 在A链上持有nft拥有权的用户，可以在B链上将该名称授权给某个地址（通过NameNftDApp）。
-5. 最终这个通过字符串铸造的nft就可以在多个链上使用，nft的持有者在多个条链上就具有了唯一的用户名。
-   
+1. Publish a dapp named NameNftDapp on all supported chains, providing the function of minting nft, an nft is a string, such as ‘zhaojie’.
+2. When minting nft through NameNftDApp, set ownership and usage rights for nft.
+3. The ownership of an nft exists only on one chain, and the right to use can exist on multiple chains at the same time.
+4. Users who hold nft ownership on chain A can authorize the username to a certain address on chain B. At this time, nft exists on chain A and chain B at the same time, and there can be multiple usage rights. Authorization on multiple chains.
+5. Ownership can be transferred on different chains, but can only exist on one chain.
+6. Ownership can revoke the right to use.
 
-## 应用场景(假设)
+## Final goal
+The nft is minted by a string (username) and can be used on multiple chains, and the nft holder has a unique username on multiple chains.
 
-1. 通过名称找到对应的用户。
-2. 通过地址转账时通过名称确认用户身份，避免发生错误。
-    例如：
-    1. 第三方钱包app集成NameNftDapp，转账时通过名称找到对方地址。
-    2. 第三方聊天app集成NameNftDapp，通过@xxxx找到某个用户。
-    3. 第三方钱包app集成NameNftDapp，填写地址时提示该地址对应的名称，用于确认用户身份，避免发生错误。
+## Why have the right to own and use
+If the user name is only minted on multiple chains at the time of registration, due to the problem of time difference, it cannot be guaranteed that the minting will be successful on multiple chains. For example, if two addresses are minted on two chains at the same time, conflicts will occur. After the ownership is introduced and only exists on one chain, when casting, first query whether the user name on other chains exists, which can ensure uniqueness, but at this time the user name can only exist on one chain, and the usability is limited, so it needs to be introduced again The concept of usage rights can guarantee uniqueness and can be used in more places.
 
+## Use Cases(assumption)
 
+1. Find the corresponding address by name.
+2. Confirm user identity by name when transferring money by address to avoid mistakes.
+    E.g:
+    1. The third-party wallet app integrates NameNftDapp, and the address of the other party can be found by the name when transferring money.
+    2. The third-party chat app integrates NameNftDapp and finds a user through @xxxx.
+    3. The third-party wallet app integrates NameNftDapp. When filling in the address, it prompts the name corresponding to the address, which is used to confirm the user's identity and avoid errors.
