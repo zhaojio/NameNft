@@ -564,8 +564,8 @@
       ]
     },
     "/Users/zhaojie/axelar-local-gmp-examples/examples/nft-name/NftName.sol": {
-      "lastModificationDate": 1670235398902,
-      "contentHash": "a935931f2076772e563b88428d340474",
+      "lastModificationDate": 1670579902722,
+      "contentHash": "8c004e9e01a1974cb6ec155b4516e3a9",
       "sourceName": "examples/nft-name/NftName.sol",
       "solcConfig": {
         "version": "0.8.9",

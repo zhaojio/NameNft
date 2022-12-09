@@ -1,16 +1,16 @@
 'use strict';
-const {sleep} = require('../../utils');
+const { sleep } = require('../../utils');
 
 const {
     getDefaultProvider,
     Contract,
-    constants: {AddressZero},
-    utils: {keccak256, defaultAbiCoder},
+    constants: { AddressZero },
+    utils: { keccak256, defaultAbiCoder },
 } = require('ethers');
 const {
-    utils: {deployContract},
+    utils: { deployContract },
 } = require('@axelar-network/axelar-local-dev');
-const {deployUpgradable} = require('@axelar-network/axelar-gmp-sdk-solidity');
+const { deployUpgradable } = require('@axelar-network/axelar-gmp-sdk-solidity');
 
 const ExampleProxy = require('../../artifacts/examples/Proxy.sol/ExampleProxy.json');
 const NameNft = require('../../artifacts/examples/nft-name/NftName.sol/NameNft.json');
@@ -38,7 +38,7 @@ async function test(chains, wallet, options) {
 
     console.log('--- Initially ---');
 
-    const gas = {value: BigInt(Math.floor(3e5 * 10))};
+    const gas = { value: BigInt(Math.floor(3e5 * 10)) };
 
     for (const chain of chains) {
         const provider = getDefaultProvider(chain.rpc);
@@ -51,15 +51,15 @@ async function test(chains, wallet, options) {
         }
     }
 
-    async function mintNft() {
+    async function mintNft(name) {
         console.log(`Test minting nameNft on the chain ${chains[0].name}`);
-        const tx = await chains[0].contract.startMint("zhaojie", gas);
+        const tx = await chains[0].contract.startMint(name, gas);
         await tx.wait();
 
-        var nft = await chains[0].contract.nftOwnerAddress(wallet.address);
+        var nft = await chains[0].contract.queryByName(name);
 
-        while (nft.userAddress !== wallet.address) {
-            nft = await chains[0].contract.nftOwnerAddress(wallet.address);
+        while (nft.name !== name) {
+            nft = await chains[0].contract.queryByName(name);
             await sleep(2000);
         }
 
@@ -150,15 +150,16 @@ async function test(chains, wallet, options) {
     6. 跨链转移nft所有权
     */
 
-    await mintNft();
+    // await mintNft('zhaojie');
 
-    await authorization();
+    // await authorization();
 
-    await deauthorization();
+    // await deauthorization();
 
-    await transferLocal();
+    // await transferLocal();
 
-    await transferRemote();
+    // await transferRemote();
+    console.log(nft);
 
     console.log('--- TEST END ---');
 

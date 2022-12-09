@@ -22,16 +22,22 @@ contract NameNft is AxelarExecutable, Upgradable {
     SupportedChains[] public supportedchains;
 
     NftName[] public nftlist;
-    mapping(address => NftName) public nftOwnerAddress;
+    // mapping(address => NftName) public nftOwnerAddress;
     mapping(string => address) public nftMinting; //当前正在铸造的nft
     mapping(string => uint256) public mintingResponse;
 
     enum PayloadType {
+        minting,
         query,
         response,
         authorization,
         deauthorization,
         transfer
+    }
+
+    enum MessageResult {
+        success,
+        fail
     }
 
     struct SupportedChains {
@@ -45,6 +51,8 @@ contract NameNft is AxelarExecutable, Upgradable {
         bool isOwner; //所有权
         bool isRightToUse; //使用权
     }
+
+    event ResponseEvent(uint256 indexed msgId, PayloadType indexed msgType, MessageResult indexed result);
 
     /*
     soildity中的数组map遍历
@@ -80,15 +88,15 @@ contract NameNft is AxelarExecutable, Upgradable {
     }
 
     //锁定name 将name标记为 铸造中 需要有增加超时 释放对该name的锁定
-    function startMint(string calldata name) external payable {
+    function startMint(string calldata name, uint256 msgId) external payable {
         //检查名称在本合约内检查名称是否被占用
-        require(_checkName(name), 'name already in use');
+        require(_checkName(name), 'Name has been used');
         require(nftMinting[name] == address(0), 'name is minting now');
         nftMinting[name] = msg.sender;
 
         for (uint256 i = 0; i < supportedchains.length; i++) {
             if (keccak256(bytes(chainName)) != keccak256(bytes(supportedchains[i].chainName))) {
-                bytes memory payload = abi.encode(PayloadType.query, abi.encode(name));
+                bytes memory payload = abi.encode(PayloadType.query, abi.encode(name), msgId);
                 string memory stringAddress = supportedchains[i].contractaddr.toString();
                 gasReceiver.payNativeGasForContractCall{ value: msg.value / 10 }(
                     address(this),
@@ -98,7 +106,7 @@ contract NameNft is AxelarExecutable, Upgradable {
                     msg.sender
                 );
                 //gas 回调时支付的gas
-                bytes memory payload_ = abi.encode(PayloadType.response, abi.encode(true, name));
+                bytes memory payload_ = abi.encode(PayloadType.response, abi.encode(true, name), msgId);
                 gasReceiver.payNativeGasForContractCall{ value: msg.value / 10 }(
                     stringAddress.toAddress(),
                     chainName,
@@ -113,19 +121,28 @@ contract NameNft is AxelarExecutable, Upgradable {
 
     function queryByName(string calldata name) external view returns (NftName memory) {
         int256 i = findNftNameInList(name);
-        if (i > 0) {
+        if (i >= 0) {
             return nftlist[uint256(i)];
         }
         return NftName('', address(0), false, false);
     }
 
-    function queryByAddress(address addr) external view returns (NftName memory) {
+    function queryByAddress(address addr) external view returns (NftName[] memory) {
+        uint256 count = 0;
         for (uint256 i = 0; i < nftlist.length; i++) {
             if (nftlist[i].userAddress == addr) {
-                return nftlist[i];
+                count++;
             }
         }
-        return NftName('', address(0), false, false);
+        NftName[] memory list = new NftName[](count);
+        count = 0;
+        for (uint256 i = 0; i < nftlist.length; i++) {
+            if (nftlist[i].userAddress == addr) {
+                list[count] = nftlist[i];
+                count++;
+            }
+        }
+        return list;
     }
 
     function _checkName(string memory name) internal view returns (bool) {
@@ -135,6 +152,15 @@ contract NameNft is AxelarExecutable, Upgradable {
             }
         }
         return true;
+    }
+
+    function _checkOwner(address addr, string memory name) internal view returns (bool) {
+        for (uint256 i = 0; i < nftlist.length; i++) {
+            if (keccak256(bytes(name)) == keccak256(bytes(nftlist[i].name)) && nftlist[i].userAddress == addr) {
+                return true;
+            }
+        }
+        return false;
     }
 
     function _setup(bytes calldata params) internal override {
@@ -148,74 +174,83 @@ contract NameNft is AxelarExecutable, Upgradable {
         string calldata sourceAddress,
         bytes calldata payload
     ) internal override {
-        //require(sourceAddress.toAddress() == address(this), 'NOT_A_LINKER');
         //Decode the payload.
-        (PayloadType payloadType, bytes memory data) = abi.decode(payload, (PayloadType, bytes));
+        (PayloadType payloadType, bytes memory data, uint256 msgId) = abi.decode(payload, (PayloadType, bytes, uint256));
         //1.其他链上的合约返回名称是否可用 记录结果 全部返回可用 则开始铸造 不可用则标记 铸造失败 并发送事件
         //2.查询名称状态
         if (payloadType == PayloadType.query) {
             string memory name = abi.decode(data, (string));
             bool result = _checkName(name);
             //再调用回去
-            bytes memory payload_ = abi.encode(PayloadType.response, abi.encode(result, name));
+            bytes memory payload_ = abi.encode(PayloadType.response, abi.encode(result, name), msgId);
             gateway.callContract(sourceChain, sourceAddress, payload_);
         } else if (payloadType == PayloadType.response) {
             (bool state, string memory name) = abi.decode(data, (bool, string));
             if (!state) {
-                mintfail(name);
+                mintfail(name, msgId);
             } else {
                 if (mintingResponse[name] == supportedchains.length - 2) {
                     //开始铸造
-                    minting(name);
+                    minting(name, msgId);
                 } else {
                     mintingResponse[name] = mintingResponse[name] + 1;
                 }
             }
         } else if (payloadType == PayloadType.authorization) {
             (string memory name, address toaddr) = abi.decode(data, (string, address));
-            _authorization(name, toaddr);
+            _authorization(name, toaddr, msgId);
         } else if (payloadType == PayloadType.deauthorization) {
             (string memory name, address toaddr) = abi.decode(data, (string, address));
-            _deauthorization(name, toaddr);
+            _deauthorization(name, toaddr, msgId);
         } else if (payloadType == PayloadType.transfer) {
             (string memory name, address toaddr) = abi.decode(data, (string, address));
-            _transferFrom(name, toaddr);
+            _transferFrom(name, toaddr, msgId);
         }
     }
 
-    function minting(string memory name) private {
+    function minting(string memory name, uint256 msgId) private {
         address owner = nftMinting[name];
         _minting(name, owner);
-        //TODO 发送事件
+        // 发送事件
+        emit ResponseEvent(msgId, PayloadType.minting, MessageResult.success);
     }
 
     function _minting(string memory name, address owner) private {
         NftName memory nftName = NftName(name, owner, true, true);
-        nftOwnerAddress[owner] = nftName;
         nftlist.push(nftName);
         delete nftMinting[name];
         delete mintingResponse[name];
     }
 
-    function _authorization(string memory name, address toaddr) private {
+    function _authorization(
+        string memory name,
+        address toaddr,
+        uint256 msgId
+    ) private {
         NftName memory nftName = NftName(name, toaddr, false, true);
         //同样的名称则不需要重复添加
         if (findNftNameInList(name) == -1) {
             nftlist.push(nftName);
+            emit ResponseEvent(msgId, PayloadType.authorization, MessageResult.success);
         } else {
-            //授权失败
+            emit ResponseEvent(msgId, PayloadType.authorization, MessageResult.fail);
         }
-        //TODO 发送事件
     }
 
-    function _deauthorization(string memory name, address toaddr) private {
+    function _deauthorization(
+        string memory name,
+        address toaddr,
+        uint256 msgId
+    ) private {
         int256 i = findNftNameInList(name);
         //同样的地址 同样的名称则不需要重复添加
         if (i >= 0 && nftlist[uint256(i)].userAddress == toaddr) {
             nftlist[uint256(i)].userAddress = address(0);
             nftlist[uint256(i)].isRightToUse = false;
+            emit ResponseEvent(msgId, PayloadType.deauthorization, MessageResult.success);
+        } else {
+            emit ResponseEvent(msgId, PayloadType.deauthorization, MessageResult.fail);
         }
-        //TODO 发送事件
     }
 
     function findNftNameInList(string memory name) private view returns (int256) {
@@ -227,23 +262,25 @@ contract NameNft is AxelarExecutable, Upgradable {
         return -1;
     }
 
-    function mintfail(string memory name) private {
+    function mintfail(string memory name, uint256 msgId) private {
         delete nftMinting[name];
         delete mintingResponse[name];
-        //TODO 发送事件
+        emit ResponseEvent(msgId, PayloadType.minting, MessageResult.fail);
     }
 
     //跨链授权
     function authorization(
         address toaddr,
         string calldata tochain,
-        string calldata nftname
+        string calldata nftname,
+        uint256 msgId
     ) public payable {
         require(keccak256(bytes(tochain)) != keccak256(bytes(chainName)), 'CURRENT_CHAIN_NOT_SUPPORT');
         //判断name是否存在
-        require(keccak256(bytes(nftOwnerAddress[msg.sender].name)) == keccak256(bytes(nftname)), 'NOT_OWNER');
+        // require(keccak256(bytes(nftOwnerAddress[msg.sender].name)) == keccak256(bytes(nftname)), 'NOT_OWNER');
+        require(_checkOwner(msg.sender, nftname), 'NOT_OWNER');
         require(checkSupportChainByName(tochain), 'NOT_SUPPORT_CHAIN');
-        bytes memory payload = abi.encode(PayloadType.authorization, abi.encode(nftname, toaddr));
+        bytes memory payload = abi.encode(PayloadType.authorization, abi.encode(nftname, toaddr), msgId);
         string memory stringAddress = findContractAddrByName(tochain).toString();
         gasReceiver.payNativeGasForContractCall{ value: msg.value }(address(this), tochain, stringAddress, payload, msg.sender);
         gateway.callContract(tochain, stringAddress, payload);
@@ -253,13 +290,15 @@ contract NameNft is AxelarExecutable, Upgradable {
     function deauthorization(
         address toaddr,
         string calldata tochain,
-        string calldata nftname
+        string calldata nftname,
+        uint256 msgId
     ) public payable {
         require(keccak256(bytes(tochain)) != keccak256(bytes(chainName)), 'CURRENT_CHAIN_NOT_SUPPORT');
         //判断name是否存在
-        require(keccak256(bytes(nftOwnerAddress[msg.sender].name)) == keccak256(bytes(nftname)), 'NOT_OWNER');
+        //require(keccak256(bytes(nftOwnerAddress[msg.sender].name)) == keccak256(bytes(nftname)), 'NOT_OWNER');
+        require(_checkOwner(msg.sender, nftname), 'NOT_OWNER');
         require(checkSupportChainByName(tochain), 'NOT_SUPPORT_CHAIN');
-        bytes memory payload = abi.encode(PayloadType.deauthorization, abi.encode(nftname, toaddr));
+        bytes memory payload = abi.encode(PayloadType.deauthorization, abi.encode(nftname, toaddr), msgId);
         string memory stringAddress = findContractAddrByName(tochain).toString();
         gasReceiver.payNativeGasForContractCall{ value: msg.value }(address(this), tochain, stringAddress, payload, msg.sender);
         gateway.callContract(tochain, stringAddress, payload);
@@ -287,17 +326,19 @@ contract NameNft is AxelarExecutable, Upgradable {
     function transfer(
         address toaddr,
         string calldata tochain,
-        string calldata nftname
+        string calldata nftname,
+        uint256 msgId
     ) public payable {
         //当前链上进行转移
-        require(keccak256(bytes(nftOwnerAddress[msg.sender].name)) == keccak256(bytes(nftname)), 'NOT_OWNER');
+        //require(keccak256(bytes(nftOwnerAddress[msg.sender].name)) == keccak256(bytes(nftname)), 'NOT_OWNER');
+        require(_checkOwner(msg.sender, nftname), 'NOT_OWNER');
         if (keccak256(bytes(tochain)) == keccak256(bytes(chainName))) {
-            _transferLocal(nftname, toaddr, msg.sender);
+            _transferLocal(nftname, toaddr, msg.sender, msgId);
         } else {
             //跨链转移
             require(checkSupportChainByName(tochain), 'NOT_SUPPORT_CHAIN');
             burn(nftname, msg.sender);
-            bytes memory payload = abi.encode(PayloadType.transfer, abi.encode(nftname, toaddr));
+            bytes memory payload = abi.encode(PayloadType.transfer, abi.encode(nftname, toaddr), msgId);
             string memory stringAddress = findContractAddrByName(tochain).toString();
             gasReceiver.payNativeGasForContractCall{ value: msg.value }(address(this), tochain, stringAddress, payload, msg.sender);
             gateway.callContract(tochain, stringAddress, payload);
@@ -307,26 +348,33 @@ contract NameNft is AxelarExecutable, Upgradable {
     function _transferLocal(
         string memory name,
         address toaddr,
-        address owner
+        address owner,
+        uint256 msgId
     ) private {
         burn(name, owner);
         _minting(name, toaddr);
+        emit ResponseEvent(msgId, PayloadType.transfer, MessageResult.success);
     }
 
     function burn(string memory name, address owner) private {
+        require(_checkOwner(owner, name), 'NOT_OWNER');
         int256 i = findNftNameInList(name);
         delete nftlist[uint256(i)];
-        delete nftOwnerAddress[owner];
+        // delete nftOwnerAddress[owner];
     }
 
-    function _transferFrom(string memory name, address toaddr) private {
+    function _transferFrom(
+        string memory name,
+        address toaddr,
+        uint256 msgId
+    ) private {
         int256 i = findNftNameInList(name);
         if (i >= 0) {
             //删除原有list中的内容
             delete nftlist[uint256(i)];
         }
         _minting(name, toaddr);
-        //TODO 发送事件
+        emit ResponseEvent(msgId, PayloadType.transfer, MessageResult.success);
     }
 
     function contractId() external pure returns (bytes32) {

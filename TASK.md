@@ -1,7 +1,7 @@
 
 创建flutter项目 ok
 
-flutter调用web3-lib测试 
+flutter调用web3-lib测试 ok
 
 编写ui 
 
