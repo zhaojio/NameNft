@@ -16,6 +16,8 @@ Minting the username into NFT, make the username on the chain unique, turn it in
 ## Final goal
 The nft is minted by a string (username) and can be used on multiple chains, and the nft holder has a unique username on multiple chains.
 
+## Run the project
+
 The environment is the same as axelar-local-gmp-examples
  
     sudo npm i -g n
