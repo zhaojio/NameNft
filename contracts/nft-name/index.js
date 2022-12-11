@@ -1,16 +1,16 @@
 'use strict';
-const {sleep} = require('../../utils');
+const { sleep } = require('../../utils');
 
 const {
     getDefaultProvider,
     Contract,
-    constants: {AddressZero},
-    utils: {keccak256, defaultAbiCoder},
+    constants: { AddressZero },
+    utils: { keccak256, defaultAbiCoder },
 } = require('ethers');
 const {
-    utils: {deployContract},
+    utils: { deployContract },
 } = require('@axelar-network/axelar-local-dev');
-const {deployUpgradable} = require('@axelar-network/axelar-gmp-sdk-solidity');
+const { deployUpgradable } = require('@axelar-network/axelar-gmp-sdk-solidity');
 
 const ExampleProxy = require('../../artifacts/contracts/Proxy.sol/ExampleProxy.json');
 const NameNft = require('../../artifacts/contracts/nft-name/NftName.sol/NameNft.json');
@@ -33,12 +33,27 @@ async function deploy(chain, wallet) {
     console.log(`Deployed NftName for ${chain.name} at ${chain.NftName}.`);
 }
 
+async function addSupportedChain(chains, wallet) {
+    console.log('addSupportedChain');
+    for (const chain of chains) {
+        const provider = getDefaultProvider(chain.rpc);
+        chain.wallet = wallet.connect(provider);
+        chain.contract = new Contract(chain.NftName, NameNft.abi, chain.wallet);
+
+        for (const chain_ of chains) {
+            // console.log(chain_.name +":" + chain.contract.address );
+            await chain.contract.addOrUpdateSupportedChain(chain_.name, chain.contract.address);
+        }
+    }
+}
+
+
 async function test(chains, wallet, options) {
     const args = options.args || [];
 
     console.log('--- Initially ---');
 
-    const gas = {value: BigInt(Math.floor(3e5 * 100))};
+    const gas = { value: BigInt(Math.floor(3e5 * 100)) };
 
     for (const chain of chains) {
         const provider = getDefaultProvider(chain.rpc);
@@ -166,4 +181,5 @@ async function test(chains, wallet, options) {
 module.exports = {
     deploy,
     test,
+    addSupportedChain
 };

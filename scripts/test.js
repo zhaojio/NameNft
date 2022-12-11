@@ -7,8 +7,6 @@ const { keccak256, defaultAbiCoder } = require('ethers/lib/utils');
 const { GasCostLogger } = require('./gasCosts');
 const { getGasPrice, getDepositAddress } = require('./utils.js');
 
-
-
 async function test(env, chains, args, wallet, example) {
     function wrappedGetGasPrice(source, destination, tokenAddress) {
         return getGasPrice(env, source, destination, tokenAddress);
