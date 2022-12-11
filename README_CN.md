@@ -55,7 +55,7 @@ Check own private key.
    
    http://127.0.0.1:8080/
    
-![image](https://github.com/zhaojio/NameNft/blob/master/frontend/name-nft-ui.png)
+![image](https://github.com/zhaojio/NameNft/blob/main/frontend/name-nft-ui.png)
    
    
 ## 最终目的
