@@ -16,6 +16,51 @@ Minting the username into NFT, make the username on the chain unique, turn it in
 ## Final goal
 The nft is minted by a string (username) and can be used on multiple chains, and the nft holder has a unique username on multiple chains.
 
+The environment is the same as axelar-local-gmp-examples
+ 
+    sudo npm i -g n
+    sudo n v16.15.0
+    
+Clone this repo:
+
+    git clone https://github.com/zhaojio/NameNft
+    cd name Nft
+    npm install
+    
+Check your own private key.
+
+    cp.env.example.env
+
+Run local test environment
+
+    node-script/createLocal
+
+Edit and publish contracts
+    
+    npm run build
+    node script/deployment contract/nft-name local
+    
+Run Local Test
+
+    node script/deployment contract/nft-name local
+    
+Copy the front-end resource file(*important)
+
+    chmod +x copy.sh
+    ./copy.sh
+
+Run the front-end page with npm http-server
+    
+    npm install -g http-server
+    cd frontend/publish
+    http-server
+
+Open the page in a browser
+   
+   http://127.0.0.1:8080/
+   
+![image](https://github.com/zhaojio/NameNft/blob/main/frontend/name-nft-ui.png)
+
 ## Why have the right to own and use
 If the user name is only minted on multiple chains at the time of registration, due to the problem of time difference, it cannot be guaranteed that the minting will be successful on multiple chains. For example, if two addresses are minted on two chains at the same time, conflicts will occur. After the ownership is introduced and only exists on one chain, when casting, first query whether the user name on other chains exists, which can ensure uniqueness, but at this time the user name can only exist on one chain, and the usability is limited, so it needs to be introduced again The concept of usage rights can guarantee uniqueness and can be used in more places.
 
