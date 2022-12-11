@@ -1,2 +1,5 @@
-node scripts/deploy examples/nft-name local
-node scripts/test examples/nft-name local
+node scripts/deploy contracts/nft-name local
+node scripts/test contracts/nft-name local
+
+#0x4e9bfBE6925D85c888A6f23E546d30753B289DE0
+#f27110e261b5e4e7a15c707874ffba70919eef619b895b56a0056e1e08c23b86
