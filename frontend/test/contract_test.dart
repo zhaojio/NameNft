@@ -14,8 +14,9 @@ void main() {
   test('contact test', () async {
     // print(EthPrivateKey.fromHex(owner_private_key).address);
     await init();
-    RequestResult result = await startMint("Moonbeam", "zhaojie44");
+    RequestResult result = await startMint("Moonbeam", "zhaojie");
+    print(result.result);
     print(result.value);
-    print(await queryByAddress("Moonbeam", credentials.address));
+    print((await queryByAddress("Moonbeam", credentials.address)).value);
   });
 }

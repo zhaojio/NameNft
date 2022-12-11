@@ -58,14 +58,22 @@ Future queryByName(String chainName, String name) async {
   return response[0];
 }
 
-Future queryByAddress(String chainName, EthereumAddress addr) async {
+Future<RequestResult> queryByAddress(
+    String chainName, EthereumAddress addr) async {
   var chain = getChainByName(chainName);
   try {
     var response = await ask('queryByAddress', [addr], chain);
-    return response[0];
+    List res = response[0];
+    if (res.isNotEmpty) return RequestResult(true, res);
+    return RequestResult(false, "null");
   } catch (_) {
     return RequestResult(false, "Rpc Error");
   }
+}
+
+String formatAddress() {
+  String strAddr = credentials.address.toString();
+  return "${strAddr.substring(0, 6)}...${strAddr.substring(strAddr.length - 4, strAddr.length)}";
 }
 
 Future<RequestResult> startMint(String chainName, String name) async {
@@ -73,11 +81,13 @@ Future<RequestResult> startMint(String chainName, String name) async {
   int msgId = DateTime.now().microsecondsSinceEpoch;
   var chain = getChainByName(chainName);
   Web3Client web3client = chain['web3Client'];
+  // Web3Client web3client = Web3Client(chain['rpc'], Client());
+  // Web3Client web3client = chain['web3Client'];
   DeployedContract contract = chain['contract'];
   Completer<RequestResult> completer = Completer();
 
   web3client.events(FilterOptions(address: contract.address)).listen((event) {
-    // print(event);
+    print(event);
     int _msgId = int.parse(event.topics![1]);
     if (_msgId == msgId) {
       int payloadType = int.parse(event.topics![2]);
@@ -89,6 +99,7 @@ Future<RequestResult> startMint(String chainName, String name) async {
           completer.complete(
               RequestResult(false, "Name has been used on other chain"));
         }
+        // web3client.dispose();
       }
     }
   });
@@ -99,7 +110,11 @@ Future<RequestResult> startMint(String chainName, String name) async {
   } catch (e) {
     completer.complete(RequestResult(false, e.toString()));
   }
-  return completer.future;
+  return Future.any([
+    completer.future,
+    Future.delayed(const Duration(seconds: 10))
+        .then((value) => Future.value(RequestResult(false, "TimeOut")))
+  ]);
 }
 
 getChainByName(String chainName) {
@@ -123,6 +138,11 @@ Future<String> call(String funcname, List<dynamic> args, var chainInfo) async {
       chainId: null,
       fetchChainIdFromNetworkId: true);
   return result;
+}
+
+Future<List<dynamic>> ask0(
+    String funcName, List<dynamic> args, var chainInfo) async {
+  return (await ask(funcName, args, chainInfo))[0];
 }
 
 Future<List<dynamic>> ask(

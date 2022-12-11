@@ -11,7 +11,7 @@
     "rpc": "http://localhost:8500/0",
     "tokenName": "DEV",
     "tokenSymbol": "DEV",
-    "NftName": "0x3EED25DFB4bD2A44d5A31c03db6B3ada28D274b5"
+    "NftName": "0x58E84e6f4eE4922Dfdf2f3E4CFC434A993360389"
   },
   {
     "name": "Avalanche",
@@ -25,7 +25,7 @@
     "rpc": "http://localhost:8500/1",
     "tokenName": "Avax",
     "tokenSymbol": "AVAX",
-    "NftName": "0x3EED25DFB4bD2A44d5A31c03db6B3ada28D274b5"
+    "NftName": "0x58E84e6f4eE4922Dfdf2f3E4CFC434A993360389"
   },
   {
     "name": "Fantom",
@@ -39,7 +39,7 @@
     "rpc": "http://localhost:8500/2",
     "tokenName": "Fantom",
     "tokenSymbol": "FTM",
-    "NftName": "0x3EED25DFB4bD2A44d5A31c03db6B3ada28D274b5"
+    "NftName": "0x58E84e6f4eE4922Dfdf2f3E4CFC434A993360389"
   },
   {
     "name": "Ethereum",
@@ -53,7 +53,7 @@
     "rpc": "http://localhost:8500/3",
     "tokenName": "Ether",
     "tokenSymbol": "ETH",
-    "NftName": "0x3EED25DFB4bD2A44d5A31c03db6B3ada28D274b5"
+    "NftName": "0x58E84e6f4eE4922Dfdf2f3E4CFC434A993360389"
   },
   {
     "name": "Polygon",
@@ -67,6 +67,6 @@
     "rpc": "http://localhost:8500/4",
     "tokenName": "Matic",
     "tokenSymbol": "MATIC",
-    "NftName": "0x3EED25DFB4bD2A44d5A31c03db6B3ada28D274b5"
+    "NftName": "0x58E84e6f4eE4922Dfdf2f3E4CFC434A993360389"
   }
 ]

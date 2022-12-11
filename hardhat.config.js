@@ -29,6 +29,6 @@ module.exports = {
         },
     },
     paths: {
-        sources: "./examples",
+        sources: "./contracts",
     }
 };

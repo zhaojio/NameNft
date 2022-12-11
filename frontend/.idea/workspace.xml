@@ -5,11 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="77562237-abcf-446a-b70d-6967d9e6a538" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/services/functions.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/log.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/contract_test.dart" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/test/init_test.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../TASK.md" beforeDir="false" afterPath="$PROJECT_DIR$/../TASK.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../artifacts/@axelar-network/axelar-cgp-solidity/contracts/ERC20.sol/ERC20.dbg.json" beforeDir="false" afterPath="$PROJECT_DIR$/../artifacts/@axelar-network/axelar-cgp-solidity/contracts/ERC20.sol/ERC20.dbg.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../artifacts/@axelar-network/axelar-cgp-solidity/contracts/interfaces/IERC20.sol/IERC20.dbg.json" beforeDir="false" afterPath="$PROJECT_DIR$/../artifacts/@axelar-network/axelar-cgp-solidity/contracts/interfaces/IERC20.sol/IERC20.dbg.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../artifacts/@axelar-network/axelar-gmp-sdk-solidity/contracts/StringAddressUtils.sol/AddressToString.dbg.json" beforeDir="false" afterPath="$PROJECT_DIR$/../artifacts/@axelar-network/axelar-gmp-sdk-solidity/contracts/StringAddressUtils.sol/AddressToString.dbg.json" afterDir="false" />
@@ -34,7 +29,6 @@
       <change beforePath="$PROJECT_DIR$/../artifacts/@openzeppelin/contracts/utils/Strings.sol/Strings.dbg.json" beforeDir="false" afterPath="$PROJECT_DIR$/../artifacts/@openzeppelin/contracts/utils/Strings.sol/Strings.dbg.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../artifacts/@openzeppelin/contracts/utils/introspection/ERC165.sol/ERC165.dbg.json" beforeDir="false" afterPath="$PROJECT_DIR$/../artifacts/@openzeppelin/contracts/utils/introspection/ERC165.sol/ERC165.dbg.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../artifacts/@openzeppelin/contracts/utils/introspection/IERC165.sol/IERC165.dbg.json" beforeDir="false" afterPath="$PROJECT_DIR$/../artifacts/@openzeppelin/contracts/utils/introspection/IERC165.sol/IERC165.dbg.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../artifacts/build-info/b7272a8cb31eecdd639123e98f38033d.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../artifacts/examples/Proxy.sol/ExampleProxy.dbg.json" beforeDir="false" afterPath="$PROJECT_DIR$/../artifacts/examples/Proxy.sol/ExampleProxy.dbg.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../artifacts/examples/call-contract-with-token/DistributionExecutable.sol/DistributionExecutable.dbg.json" beforeDir="false" afterPath="$PROJECT_DIR$/../artifacts/examples/call-contract-with-token/DistributionExecutable.sol/DistributionExecutable.dbg.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../artifacts/examples/call-contract/ExecutableSample.sol/ExecutableSample.dbg.json" beforeDir="false" afterPath="$PROJECT_DIR$/../artifacts/examples/call-contract/ExecutableSample.sol/ExecutableSample.dbg.json" afterDir="false" />
@@ -61,7 +55,51 @@
       <change beforePath="$PROJECT_DIR$/../artifacts/examples/send-ack/SendAckSender.sol/SendAckSender.dbg.json" beforeDir="false" afterPath="$PROJECT_DIR$/../artifacts/examples/send-ack/SendAckSender.sol/SendAckSender.dbg.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cache/solidity-files-cache.json" beforeDir="false" afterPath="$PROJECT_DIR$/../cache/solidity-files-cache.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../examples/nft-name/NftName.sol" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/nft-name/NftName.sol" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../examples/nft-name/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../examples/nft-name/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Extension State/LOG" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Extension State/LOG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Extension State/LOG.old" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Extension State/LOG.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Favicons" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Favicons" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/File System/000/t/Paths/CURRENT" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/File System/000/t/Paths/CURRENT" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/File System/Origins/LOG" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/File System/Origins/LOG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/GCM Store/Encryption/LOG" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/GCM Store/Encryption/LOG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/GCM Store/Encryption/LOG.old" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/GCM Store/Encryption/LOG.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/History" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/History" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/History-journal" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/History-journal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Network Action Predictor" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Network Action Predictor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Preferences" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Preferences" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Reporting and NEL" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Reporting and NEL" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Service Worker/Database/000003.log" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Service Worker/Database/000003.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Service Worker/Database/LOG" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Service Worker/Database/LOG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Service Worker/Database/LOG.old" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Service Worker/Database/LOG.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Service Worker/ScriptCache/08b99d499107ba17_0" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Service Worker/ScriptCache/08b99d499107ba17_0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Service Worker/ScriptCache/index-dir/the-real-index" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Service Worker/ScriptCache/index-dir/the-real-index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Session Storage/000003.log" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Session Storage/000003.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Session Storage/LOG" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Session Storage/LOG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Session Storage/LOG.old" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Session Storage/LOG.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Site Characteristics Database/000003.log" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Site Characteristics Database/000003.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Site Characteristics Database/LOG" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Site Characteristics Database/LOG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Site Characteristics Database/LOG.old" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Site Characteristics Database/LOG.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Sync Data/LevelDB/LOG" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Sync Data/LevelDB/LOG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Sync Data/LevelDB/LOG.old" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Sync Data/LevelDB/LOG.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/TransportSecurity" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/TransportSecurity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Visited Links" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Visited Links" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Web Data" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/Web Data" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/WebStorage/QuotaManager" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/WebStorage/QuotaManager" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/WebStorage/QuotaManager-journal" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/WebStorage/QuotaManager-journal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/shared_proto_db/000003.log" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/shared_proto_db/000003.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/shared_proto_db/LOG" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/shared_proto_db/LOG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/shared_proto_db/LOG.old" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/shared_proto_db/LOG.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/shared_proto_db/metadata/000003.log" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/shared_proto_db/metadata/000003.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/shared_proto_db/metadata/LOG" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/shared_proto_db/metadata/LOG" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/shared_proto_db/metadata/LOG.old" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/chrome-device/Default/shared_proto_db/metadata/LOG.old" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/NameNft.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/NameNft.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/c075001b96339384a97db4862b8ab8db.cache.dill.track.dill" beforeDir="false" afterPath="$PROJECT_DIR$/build/c075001b96339384a97db4862b8ab8db.cache.dill.track.dill" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/flutter_assets/assets/NameNft.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/flutter_assets/assets/NameNft.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test_cache/build/c075001b96339384a97db4862b8ab8db.cache.dill.track.dill" beforeDir="false" afterPath="$PROJECT_DIR$/build/test_cache/build/c075001b96339384a97db4862b8ab8db.cache.dill.track.dill" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/unit_test_assets/assets/NameNft.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/unit_test_assets/assets/NameNft.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/services/functions.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/functions.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/contract_test.dart" beforeDir="false" afterPath="$PROJECT_DIR$/test/contract_test.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,6 +132,9 @@
     <property name="dart.analysis.tool.window.force.activate" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
@@ -102,7 +143,7 @@
       <recent name="$PROJECT_DIR$/lib" />
     </key>
   </component>
-  <component name="RunManager" selected="Flutter Test.contact test">
+  <component name="RunManager" selected="Flutter.main.dart">
     <configuration name="contact test" type="FlutterTestConfigType" factoryName="Flutter Test" temporary="true" nameIsGenerated="true">
       <option name="testName" value="contact test" />
       <option name="testFile" value="$PROJECT_DIR$/test/contract_test.dart" />
@@ -149,7 +190,7 @@
       <updated>1670296856726</updated>
       <workItem from="1670296858408" duration="333000" />
       <workItem from="1670297210132" duration="28796000" />
-      <workItem from="1670557807895" duration="5493000" />
+      <workItem from="1670557807895" duration="32528000" />
     </task>
     <servers />
   </component>
@@ -157,37 +198,63 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="581" height="466" key="DebuggerActiveHint" timestamp="1670491706271">
+    <state x="565" y="273" width="539" height="573" key="#xdebugger.evaluate" timestamp="1670653039247">
       <screen x="0" y="23" width="1440" height="823" />
     </state>
-    <state width="581" height="466" key="DebuggerActiveHint/0.23.1440.823@0.23.1440.823" timestamp="1670491706271" />
-    <state width="1398" height="284" key="GridCell.Tab.0.bottom" timestamp="1670581510828">
+    <state x="565" y="273" width="539" height="573" key="#xdebugger.evaluate/0.23.1440.823@0.23.1440.823" timestamp="1670653039247" />
+    <state width="581" height="466" key="DebuggerActiveHint" timestamp="1670744225232">
       <screen x="0" y="23" width="1440" height="823" />
     </state>
-    <state width="1398" height="284" key="GridCell.Tab.0.bottom/0.23.1440.823@0.23.1440.823" timestamp="1670581510828" />
-    <state width="1398" height="284" key="GridCell.Tab.0.center" timestamp="1670581510827">
+    <state width="581" height="466" key="DebuggerActiveHint/0.23.1440.823@0.23.1440.823" timestamp="1670744225232" />
+    <state width="699" height="242" key="GridCell.Tab.0.bottom" timestamp="1670748880364">
       <screen x="0" y="23" width="1440" height="823" />
     </state>
-    <state width="1398" height="284" key="GridCell.Tab.0.center/0.23.1440.823@0.23.1440.823" timestamp="1670581510827" />
-    <state width="1398" height="284" key="GridCell.Tab.0.left" timestamp="1670581510827">
+    <state width="699" height="242" key="GridCell.Tab.0.bottom/0.23.1440.823@0.23.1440.823" timestamp="1670748880364" />
+    <state width="699" height="242" key="GridCell.Tab.0.center" timestamp="1670748880363">
       <screen x="0" y="23" width="1440" height="823" />
     </state>
-    <state width="1398" height="284" key="GridCell.Tab.0.left/0.23.1440.823@0.23.1440.823" timestamp="1670581510827" />
-    <state width="1398" height="284" key="GridCell.Tab.0.right" timestamp="1670581510828">
+    <state width="699" height="242" key="GridCell.Tab.0.center/0.23.1440.823@0.23.1440.823" timestamp="1670748880363" />
+    <state width="699" height="242" key="GridCell.Tab.0.left" timestamp="1670748880363">
       <screen x="0" y="23" width="1440" height="823" />
     </state>
-    <state width="1398" height="284" key="GridCell.Tab.0.right/0.23.1440.823@0.23.1440.823" timestamp="1670581510828" />
+    <state width="699" height="242" key="GridCell.Tab.0.left/0.23.1440.823@0.23.1440.823" timestamp="1670748880363" />
+    <state width="699" height="242" key="GridCell.Tab.0.right" timestamp="1670748880364">
+      <screen x="0" y="23" width="1440" height="823" />
+    </state>
+    <state width="699" height="242" key="GridCell.Tab.0.right/0.23.1440.823@0.23.1440.823" timestamp="1670748880364" />
+    <state x="208" y="23" width="1024" height="823" key="SettingsEditor" timestamp="1670652403048">
+      <screen x="0" y="23" width="1440" height="823" />
+    </state>
+    <state x="208" y="23" width="1024" height="823" key="SettingsEditor/0.23.1440.823@0.23.1440.823" timestamp="1670652403048" />
     <state width="500" height="496" key="SwitcherDM" timestamp="1670491011494">
       <screen x="0" y="23" width="1440" height="823" />
     </state>
     <state width="500" height="496" key="SwitcherDM/0.23.1440.823@0.23.1440.823" timestamp="1670491011494" />
+    <state x="267" y="179" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1670744845734">
+      <screen x="0" y="23" width="1440" height="823" />
+    </state>
+    <state x="267" y="179" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.23.1440.823@0.23.1440.823" timestamp="1670744845734" />
     <state x="385" y="197" key="run.anything.popup" timestamp="1670469236112">
       <screen x="0" y="23" width="1440" height="823" />
     </state>
     <state x="385" y="197" key="run.anything.popup/0.23.1440.823@0.23.1440.823" timestamp="1670469236112" />
-    <state x="385" y="170" width="670" height="676" key="search.everywhere.popup" timestamp="1670469238944">
+    <state x="385" y="170" width="670" height="676" key="search.everywhere.popup" timestamp="1670641660842">
       <screen x="0" y="23" width="1440" height="823" />
     </state>
-    <state x="385" y="170" width="670" height="676" key="search.everywhere.popup/0.23.1440.823@0.23.1440.823" timestamp="1670469238944" />
+    <state x="385" y="170" width="670" height="676" key="search.everywhere.popup/0.23.1440.823@0.23.1440.823" timestamp="1670641660842" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint type="Dart">
+          <url>file://$PROJECT_DIR$/lib/main.dart</url>
+          <line>370</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+      </breakpoints>
+      <default-breakpoints>
+        <breakpoint type="dart-exception" />
+      </default-breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
