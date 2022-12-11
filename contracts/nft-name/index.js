@@ -38,7 +38,7 @@ async function test(chains, wallet, options) {
 
     console.log('--- Initially ---');
 
-    const gas = {value: BigInt(Math.floor(3e5 * 10))};
+    const gas = {value: BigInt(Math.floor(3e5 * 100))};
 
     for (const chain of chains) {
         const provider = getDefaultProvider(chain.rpc);

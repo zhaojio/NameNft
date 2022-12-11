@@ -56,7 +56,7 @@ contract NameNft is AxelarExecutable, Upgradable {
 
     /*
     soildity中的数组map遍历
-    1.初始化支持的链的列表 只有所有者可以初始化 
+    1.初始化支持的链的列表 只有所有者可以初始化
     2.实现铸造的方法 铸造之前去其他的链上查询
     */
 
@@ -99,7 +99,7 @@ contract NameNft is AxelarExecutable, Upgradable {
             if (keccak256(bytes(chainName)) != keccak256(bytes(supportedchains[i].chainName))) {
                 bytes memory payload = abi.encode(PayloadType.query, abi.encode(name), msgId);
                 string memory stringAddress = supportedchains[i].contractaddr.toString();
-                gasReceiver.payNativeGasForContractCall{ value: msg.value / 10 }(
+                gasReceiver.payNativeGasForContractCall{ value: msg.value / 20 }(
                     address(this),
                     supportedchains[i].chainName,
                     stringAddress,
@@ -108,11 +108,19 @@ contract NameNft is AxelarExecutable, Upgradable {
                 );
                 //gas 回调时支付的gas
                 bytes memory payload_ = abi.encode(PayloadType.response, abi.encode(true, name), msgId);
-                gasReceiver.payNativeGasForContractCall{ value: msg.value / 10 }(
+                gasReceiver.payNativeGasForContractCall{ value: msg.value / 20 }(
                     stringAddress.toAddress(),
                     chainName,
                     address(this).toString(),
                     payload_,
+                    msg.sender
+                );
+                bytes memory payload2_ = abi.encode(PayloadType.response, abi.encode(false, name), msgId);
+                    gasReceiver.payNativeGasForContractCall{ value: msg.value / 20 }(
+                    stringAddress.toAddress(),
+                    chainName,
+                    address(this).toString(),
+                    payload2_,
                     msg.sender
                 );
                 gateway.callContract(supportedchains[i].chainName, stringAddress, payload);
