@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="77562237-abcf-446a-b70d-6967d9e6a538" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/copy.sh" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../copy.sh" beforeDir="false" afterPath="$PROJECT_DIR$/../copy.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README_CN.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README_CN.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/web/.last_build_id" beforeDir="false" afterPath="$PROJECT_DIR$/build/web/.last_build_id" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/web/assets/AssetManifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/web/assets/AssetManifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/web/assets/NOTICES" beforeDir="false" afterPath="$PROJECT_DIR$/build/web/assets/NOTICES" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/web/flutter_service_worker.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/web/flutter_service_worker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/web/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/web/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/web/main.dart.js" beforeDir="false" afterPath="$PROJECT_DIR$/build/web/main.dart.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +99,7 @@
       <workItem from="1670296858408" duration="333000" />
       <workItem from="1670297210132" duration="28796000" />
       <workItem from="1670557807895" duration="32528000" />
-      <workItem from="1670748848796" duration="912000" />
+      <workItem from="1670748848796" duration="1389000" />
     </task>
     <servers />
   </component>

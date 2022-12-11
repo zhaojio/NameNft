@@ -3,10 +3,44 @@
     
     将用户名称铸造成nft，让链上的名称具有唯一性，变成数字资产，并且可以在多个链之间使用。
 
+## 运行项目
+    
+运行环境和axelar-local-gmp-examples一样   
+ 
+    sudo npm i -g n
+    sudo n v16.15.0
+    
+Clone this repo:
 
+    git clone https://github.com/zhaojio/NameNft
+    cd NameNft
+    npm install
+    
+Check own private key.
+    cp .env.example .env
+
+运行本地测试环境
+    node scripts/createLocal
+
+编译和发布合约
+    
+    npm run build
+    node scripts/deploy contracts/nft-name local
+    
+运行本地测试
+
+    node scripts/deploy contracts/nft-name local
+    
+拷贝前端资源文件
+
+    chmod +x copy.sh
+    ./copy.sh
+    
+    
+    
 ## 如何实现
 
-1. 在所有支持的链上发布名为NameNft的dapp，提供铸造nft的功能，一个nft为一个字符串，如zhaojie。
+1. 在所有支持的链上发布名为NameNft的DApp，提供铸造nft的功能，一个nft为一个字符串，如zhaojie。
 2. 通过NameNftDApp铸造nft时，为nft设置拥有权和使用权。
 3. 一个nft的拥有权，只存在于唯一的一条链上，使用权可以在多个链上同时存在。
 4. 在A链上持有nft拥有权的用户，可以在B链上将该名称授权给某个地址，此时nft在A链和B链上同时存在，使用权可以有多个，可以在多个链上进行授权。

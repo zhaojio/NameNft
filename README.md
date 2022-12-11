@@ -2,11 +2,12 @@
     
 Minting the username into NFT, make the username on the chain unique, turn it into a digital asset, and can be used between multiple chains.
 
+## 
 
 ## How it works
 
-1. Publish a dapp named NameNftDapp on all supported chains, providing the function of minting nft, an nft is a string, such as ‘zhaojie’.
-2. When minting nft through NameNftDApp, set ownership and usage rights for nft.
+1. Publish a dapp named NameNft DApp on all supported chains, providing the function of minting nft, an nft is a string, such as ‘zhaojie’.
+2. When minting nft through NameNft DApp, set ownership and usage rights for nft.
 3. The ownership of an nft exists only on one chain, and the right to use can exist on multiple chains at the same time.
 4. Users who hold nft ownership on chain A can authorize the username to a certain address on chain B. At this time, nft exists on chain A and chain B at the same time, and there can be multiple usage rights. Authorization on multiple chains.
 5. Ownership can be transferred on different chains, but can only exist on one chain.
