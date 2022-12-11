@@ -5,11 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="77562237-abcf-446a-b70d-6967d9e6a538" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../contracts/nft-name/NftName.sol" beforeDir="false" afterPath="$PROJECT_DIR$/../contracts/nft-name/NftName.sol" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../contracts/nft-name/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../contracts/nft-name/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/assets/NameNft.json" beforeDir="false" afterPath="$PROJECT_DIR$/assets/NameNft.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/release/assets/assets/NameNft.json" beforeDir="false" afterPath="$PROJECT_DIR$/release/assets/assets/NameNft.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +97,7 @@
       <workItem from="1670296858408" duration="333000" />
       <workItem from="1670297210132" duration="28796000" />
       <workItem from="1670557807895" duration="32528000" />
-      <workItem from="1670748848796" duration="1389000" />
+      <workItem from="1670748848796" duration="1559000" />
     </task>
     <servers />
   </component>
@@ -117,22 +113,22 @@
       <screen x="0" y="23" width="1440" height="823" />
     </state>
     <state width="581" height="466" key="DebuggerActiveHint/0.23.1440.823@0.23.1440.823" timestamp="1670744225232" />
-    <state width="1398" height="305" key="GridCell.Tab.0.bottom" timestamp="1670749082030">
+    <state width="1398" height="305" key="GridCell.Tab.0.bottom" timestamp="1670761321149">
       <screen x="0" y="23" width="1440" height="823" />
     </state>
-    <state width="1398" height="305" key="GridCell.Tab.0.bottom/0.23.1440.823@0.23.1440.823" timestamp="1670749082030" />
-    <state width="1398" height="305" key="GridCell.Tab.0.center" timestamp="1670749082029">
+    <state width="1398" height="305" key="GridCell.Tab.0.bottom/0.23.1440.823@0.23.1440.823" timestamp="1670761321149" />
+    <state width="1398" height="305" key="GridCell.Tab.0.center" timestamp="1670761321148">
       <screen x="0" y="23" width="1440" height="823" />
     </state>
-    <state width="1398" height="305" key="GridCell.Tab.0.center/0.23.1440.823@0.23.1440.823" timestamp="1670749082029" />
-    <state width="1398" height="305" key="GridCell.Tab.0.left" timestamp="1670749082029">
+    <state width="1398" height="305" key="GridCell.Tab.0.center/0.23.1440.823@0.23.1440.823" timestamp="1670761321148" />
+    <state width="1398" height="305" key="GridCell.Tab.0.left" timestamp="1670761321147">
       <screen x="0" y="23" width="1440" height="823" />
     </state>
-    <state width="1398" height="305" key="GridCell.Tab.0.left/0.23.1440.823@0.23.1440.823" timestamp="1670749082029" />
-    <state width="1398" height="305" key="GridCell.Tab.0.right" timestamp="1670749082029">
+    <state width="1398" height="305" key="GridCell.Tab.0.left/0.23.1440.823@0.23.1440.823" timestamp="1670761321147" />
+    <state width="1398" height="305" key="GridCell.Tab.0.right" timestamp="1670761321149">
       <screen x="0" y="23" width="1440" height="823" />
     </state>
-    <state width="1398" height="305" key="GridCell.Tab.0.right/0.23.1440.823@0.23.1440.823" timestamp="1670749082029" />
+    <state width="1398" height="305" key="GridCell.Tab.0.right/0.23.1440.823@0.23.1440.823" timestamp="1670761321149" />
     <state x="208" y="23" width="1024" height="823" key="SettingsEditor" timestamp="1670652403048">
       <screen x="0" y="23" width="1440" height="823" />
     </state>

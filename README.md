@@ -1,8 +1,11 @@
+
+## Demo Video 
+
+(*palace hold*)
+
 ## Overview
     
-Minting the username into NFT, make the username on the chain unique, turn it into a digital asset, and can be used between multiple chains.
-
-## 
+Minting the username into NFT, make the username on supported chains unique, turn it into a digital asset, and can be used between multiple chains.
 
 ## How it works
 
