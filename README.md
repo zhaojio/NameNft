@@ -82,6 +82,6 @@ If the user name is only minted on multiple chains at the time of registration, 
 1. Find the corresponding address by name.
 2. Confirm user identity by name when transferring money by address to avoid mistakes.
     E.g:
-    1. The third-party wallet app integrates NameNftDapp, and the address of the other party can be found by the name when transferring money.
-    2. The third-party chat app integrates NameNftDapp and finds a user through @xxxx.
-    3. The third-party wallet app integrates NameNftDapp. When filling in the address, it prompts the name corresponding to the address, which is used to confirm the user's identity and avoid errors.
+    1. The third-party wallet app integrates NameNft DApp, and the address of the other party can be found by the name when transferring money.
+    2. The third-party chat app integrates NameNft DApp and finds a user through @xxxx.
+    3. The third-party wallet app integrates NameNft DApp. When filling in the address, it prompts the name corresponding to the address, which is used to confirm the user's identity and avoid errors.
