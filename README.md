@@ -19,6 +19,18 @@ Minting the username into NFT, make the username on supported chains unique, tur
 ## Final goal
 The nft is minted by a string (username) and can be used on multiple chains, and the nft holder has a unique username on multiple chains.
 
+## Why have the right to own and use
+If the user name is only minted on multiple chains at the time of registration, due to the problem of time difference, it cannot be guaranteed that the minting will be successful on multiple chains. For example, if two addresses are minted on two chains at the same time, conflicts will occur. After the ownership is introduced and only exists on one chain, when casting, first query whether the user name on other chains exists, which can ensure uniqueness, but at this time the user name can only exist on one chain, and the usability is limited, so it needs to be introduced again The concept of usage rights can guarantee uniqueness and can be used in more places.
+
+## Use Cases(assumption)
+
+1. Find the corresponding address by name.
+2. Confirm user identity by name when transferring money by address to avoid mistakes.
+    E.g:
+    1. The third-party wallet app integrates NameNft DApp, and the address of the other party can be found by the name when transferring money.
+    2. The third-party chat app integrates NameNft DApp and finds a user through @xxxx.
+    3. The third-party wallet app integrates NameNft DApp. When filling in the address, it prompts the name corresponding to the address, which is used to confirm the user's identity and avoid errors.
+
 ## Run the project
 
 The environment is the same as axelar-local-gmp-examples
@@ -73,15 +85,3 @@ Test account
 
     0x4e9bfBE6925D85c888A6f23E546d30753B289DE0
     f27110e261b5e4e7a15c707874ffba70919eef619b895b56a0056e1e08c23b86
-
-## Why have the right to own and use
-If the user name is only minted on multiple chains at the time of registration, due to the problem of time difference, it cannot be guaranteed that the minting will be successful on multiple chains. For example, if two addresses are minted on two chains at the same time, conflicts will occur. After the ownership is introduced and only exists on one chain, when casting, first query whether the user name on other chains exists, which can ensure uniqueness, but at this time the user name can only exist on one chain, and the usability is limited, so it needs to be introduced again The concept of usage rights can guarantee uniqueness and can be used in more places.
-
-## Use Cases(assumption)
-
-1. Find the corresponding address by name.
-2. Confirm user identity by name when transferring money by address to avoid mistakes.
-    E.g:
-    1. The third-party wallet app integrates NameNft DApp, and the address of the other party can be found by the name when transferring money.
-    2. The third-party chat app integrates NameNft DApp and finds a user through @xxxx.
-    3. The third-party wallet app integrates NameNft DApp. When filling in the address, it prompts the name corresponding to the address, which is used to confirm the user's identity and avoid errors.
