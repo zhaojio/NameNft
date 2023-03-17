@@ -1,1 +1,0 @@
-cp -r build/web release
