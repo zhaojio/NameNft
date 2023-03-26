@@ -1,46 +1,50 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>dioxus | ⛺</title>
-  <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta charset="UTF-8" />
-  
-</head>
-<body>
-  <div id="main"></div>
-  <script type="module">
-    import init from "/./assets/dioxus/dioxus.js";
-    init("/./assets/dioxus/dioxus_bg.wasm").then(wasm => {
-      if (wasm.__wbindgen_start == undefined) {
-        wasm.main();
-      }
-    });
-  </script>
-  
-</body>
-</html><script>// Dioxus-CLI
-// https://github.com/DioxusLabs/cli
+<!DOCTYPE html><html><head>
+	<title>Dark Button Template</title>
+	<style>
+        body {
+            background-color: black;
+            color: rgb(228, 226, 226);
+            margin: auto;
+        }
+    
+	</style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="module">import init from '/frontend-42a47f0f1c398939.js';init('/frontend-42a47f0f1c398939_bg.wasm');</script>
+    <link rel="stylesheet" type="text/css" href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css">
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
 
-(function () {
-  var protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-  var url = protocol + '//' + window.location.host + '/_dioxus/ws';
-  var poll_interval = 8080;
-  var reload_upon_connect = () => {
-      window.setTimeout(
-          () => {
-              var ws = new WebSocket(url);
-              ws.onopen = () => window.location.reload();
-              ws.onclose = reload_upon_connect;
-          },
-          poll_interval);
-  };
 
-  var ws = new WebSocket(url);
-  ws.onmessage = (ev) => {
-      if (ev.data == "reload") {
-          window.location.reload();
-      }
-  };
-  ws.onclose = reload_upon_connect;
-})()</script>
+<link rel="preload" href="/frontend-42a47f0f1c398939_bg.wasm" as="fetch" type="application/wasm" crossorigin="">
+<link rel="modulepreload" href="/frontend-42a47f0f1c398939.js"></head>
+<body class="bg-gray-900">
+    <div id="main"> </div>
+  
+<script>(function () {
+    var protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+    var url = protocol + '//' + window.location.host + '/_trunk/ws';
+    var poll_interval = 5000;
+    var reload_upon_connect = () => {
+        window.setTimeout(
+            () => {
+                // when we successfully reconnect, we'll force a
+                // reload (since we presumably lost connection to
+                // trunk due to it being killed, so it will have
+                // rebuilt on restart)
+                var ws = new WebSocket(url);
+                ws.onopen = () => window.location.reload();
+                ws.onclose = reload_upon_connect;
+            },
+            poll_interval);
+    };
+
+    var ws = new WebSocket(url);
+    ws.onmessage = (ev) => {
+        const msg = JSON.parse(ev.data);
+        if (msg.reload) {
+            window.location.reload();
+        }
+    };
+    ws.onclose = reload_upon_connect;
+})()
+</script></body></html>

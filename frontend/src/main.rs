@@ -1,17 +1,49 @@
 #![allow(non_snake_case)]
-// import the prelude to get access to the `rsx!` macro and the `Scope` and `Element` types
 use dioxus::prelude::*;
 
+mod widget;
+mod libs;
+
+use widget::*;
+use libs::*;
+
+
 fn main() {
-    // launch the web app
-    dioxus_web::launch(App);
+    dioxus_web::launch(app);
 }
 
-// create a component that renders a div with the text "Hello, world!"
-fn App(cx: Scope) -> Element {
+pub fn app(cx: Scope) -> Element {
+    cx.render(rsx!(
+        居中{
+            头部导航{}
+            Padding{
+                value: "20px",
+                Margin{value:"120px"}
+                列{
+                    p{
+                        "The Name Servers of the next internet evolution."
+                    }
+                }
+            
+            }
+        }
+    ))
+}
+
+fn 头部导航(cx: Scope) -> Element {
     cx.render(rsx! {
-        div {
-            "Hello, world!"
+        行 {
+            align: Align::end,
+            h1{"Development"}
+            Padding{value:"10px"}
+            div{"Document"}
         }
     })
 }
+
+fn 页面结尾(cx: Scope) -> Element {
+    cx.render(rsx! {
+        div{"页面结尾"}
+    })
+}
+
