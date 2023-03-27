@@ -3,13 +3,16 @@ use dioxus::prelude::*;
 
 use crate::libs::*;
 
+pub fn Button() {
+    
+}
 
 pub fn 卡片() {}
 
 pub fn 行<'a>(cx: Scope<'a, ChildrenProps<'a>>) -> Element {
     cx.render(rsx! {
         div{
-            class: "flex {cx.props.class} {cx.props.align.getAlign()}",
+            class: "flex items-center {cx.props.class} {cx.props.align.getAlign()}",
             &cx.props.children
         }
     })
@@ -18,7 +21,7 @@ pub fn 行<'a>(cx: Scope<'a, ChildrenProps<'a>>) -> Element {
 pub fn 列<'a>(cx: Scope<'a, ChildrenProps<'a>>) -> Element {
     cx.render(rsx! {
         div{
-            class: "flex flex-col {cx.props.class} {cx.props.align.getAlign()}",
+            class: "flex flex-col items-center {cx.props.class} {cx.props.align.getAlign()}",
             &cx.props.children
         }
     })
