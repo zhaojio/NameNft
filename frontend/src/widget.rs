@@ -30,7 +30,8 @@ pub fn 列<'a>(cx: Scope<'a, ChildrenProps<'a>>) -> Element {
 pub fn 居中<'a>(cx: Scope<'a, ChildrenProps<'a>>) -> Element {
     cx.render(rsx!(
         div {
-            text_align: "center",
+            //text_align: "center",
+            class:"flex justify-center items-center {cx.props.class}",
             &cx.props.children
     }))
 }

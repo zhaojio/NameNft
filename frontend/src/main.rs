@@ -12,25 +12,31 @@ fn main() {
 
 pub fn app(cx: Scope) -> Element {
     cx.render(rsx!(
-        头部导航{}
         列{
-            class:"pt-10",
-            p{
-                class :"text-3xl text-white",
-                "The Name Servers of the next internet evolution."
-            }
-            p{
-                text_align: "center",
-                width:"50%",
-                class:"text-gray-400 pt-3",
-                "Minting the username into NFT, make the username on supported chains unique, turn it into a digital asset, and can be used between multiple chains."
-                a{
-                    class:"text-blue-300",
-                    href:"#",
-                    " Learn More >"
+            class:"w-full",
+            头部导航{}
+            列{
+                class:"pt-10 w-1/2",
+                p{
+                    class :"text-3xl text-white",
+                    "The Name Servers of the next internet evolution."
+                }
+                p{
+                    text_align: "center",
+                    class:"text-gray-400 pt-3",
+                    "Minting the username into NFT, make the username on supported chains unique, turn it into a digital asset, and can be used between multiple chains."
+                    a{
+                        class:"text-blue-300",
+                        href:"#",
+                        " Learn More >"
+                    }
                 }
             }
-
+            列{
+                class:"w-1/2",
+                搜索框{}
+                搜索结果{}
+            }
         }
     ))
 }
@@ -38,25 +44,28 @@ pub fn app(cx: Scope) -> Element {
 fn 头部导航(cx: Scope) -> Element {
     cx.render(rsx! {
         行 {
-            class: "pl-32 px-5 py-3 bg-gray-800",
+            class: "pl-32 px-5 py-3 bg-gray-800 w-full",
             align: Align::between,
             行{
                 a{
                     class:"text-2xl",
                     href:"#",
                     "NAME-NFT"
-                }
-               
+                }      
                 a{
                     class:"pl-5",
                     href:"#",
                     "How it Work"
                 }
-
                 a{
                     class:"pl-5",
                     href:"#",
                     "Development"
+                }
+                a{
+                    class:"pl-5",
+                    href:"#",
+                    "About"
                 }
             }
             button{
@@ -70,12 +79,67 @@ fn 头部导航(cx: Scope) -> Element {
     })
 }
 
-fn 页尾(cx: Scope) -> Element {
+fn 搜索框(cx: Scope) -> Element {
     cx.render(rsx! {
-        div{
-            bottom:"0px",
-            position:"absolute",
-            "页面结尾"
+        居中{
+            class:"pt-10 w-full",        
+            div{
+                class:"relative mb-6 w-full",
+                div{
+                    class:"absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none",
+                    svg{
+                        class:"w-5 h-5 text-blue-500",
+                        fill:"currentColor",
+                        view_box:"0 0 50 50",
+                        path{
+                            d:"M 21 3 C 11.601563 3 4 10.601563 4 20 C 4 29.398438 11.601563 37 21 37 C 24.355469 37 27.460938 36.015625 30.09375 34.34375 L 42.375 46.625 L 46.625 42.375 L 34.5 30.28125 C 36.679688 27.421875 38 23.878906 38 20 C 38 10.601563 30.398438 3 21 3 Z M 21 7 C 28.199219 7 34 12.800781 34 20 C 34 27.199219 28.199219 33 21 33 C 13.800781 33 8 27.199219 8 20 C 8 12.800781 13.800781 7 21 7 Z"
+                        }
+                    }
+                }
+                
+                //响应回车事件 输入之后添加删除icon
+                input{
+                    class:"
+                    w-full
+                    focus:outline-none 
+                    text-md rounded-lg block pl-10 p-3 
+                    focus:ring-1 focus:ring-inset focus:ring-blue-600 
+                    bg-gray-700 border-gray-600 placeholder-gray-300 focus:text-white",
+                    placeholder:"Input a username"
+                }
+                
+                button{
+                    class:"absolute top-0 right-0 bottom-0 m-px px-4
+                    text-sm font-medium rounded-r-lg hover:bg-blue-800 
+                    focus:outline-none bg-blue-900 hover:bg-blue-700 ",     
+                    svg{
+                        class:"h-5 w-5 text-gray-300",
+                        fill:"currentColor",
+                        view_box:"0 0 50 50",
+                        path{
+                            d:"M 21 3 C 11.601563 3 4 10.601563 4 20 C 4 29.398438 11.601563 37 21 37 C 24.355469 37 27.460938 36.015625 30.09375 34.34375 L 42.375 46.625 L 46.625 42.375 L 34.5 30.28125 C 36.679688 27.421875 38 23.878906 38 20 C 38 10.601563 30.398438 3 21 3 Z M 21 7 C 28.199219 7 34 12.800781 34 20 C 34 27.199219 28.199219 33 21 33 C 13.800781 33 8 27.199219 8 20 C 8 12.800781 13.800781 7 21 7 Z"
+                        }
+                    }
+                }
+            }
         }
+    })
+}
+
+fn 搜索结果(cx: Scope) -> Element {
+    cx.render(rsx! {
+        行{
+            class:"w-full",
+            align:Align::between,
+            div{
+                class:"text-xl",
+                "Search Results"
+            }
+            div{
+                class:"text-xl",
+                "Search Results"
+            }
+        }
+       
     })
 }
