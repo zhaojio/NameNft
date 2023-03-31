@@ -15,30 +15,37 @@ pub fn app(cx: Scope) -> Element {
         列{
             class:"w-full",
             头部导航{}
+            中间文字{}
             列{
-                class:"pt-10 w-1/2",
-                p{
-                    class :"text-3xl text-white",
-                    "The Name Servers of the next internet evolution."
-                }
-                p{
-                    text_align: "center",
-                    class:"text-gray-400 pt-3",
-                    "Minting the username into NFT, make the username on supported chains unique, turn it into a digital asset, and can be used between multiple chains."
-                    a{
-                        class:"text-blue-300",
-                        href:"#",
-                        " Learn More >"
-                    }
-                }
-            }
-            列{
-                class:"w-1/2",
+                class:"lg:w-1/2 w-10/12 pt-7",
                 搜索框{}
-                搜索结果{}
+                销售列表{}
             }
         }
     ))
+}
+
+fn 中间文字(cx: Scope) -> Element {
+    render!{
+        列{
+            class:"pt-10 w-1/2",
+            p{
+                text_align: "center",
+                class :"text-3xl text-white",
+                "The Name Servers of the next internet evolution."
+            }
+            p{
+                text_align: "center",
+                class:"text-gray-400 pt-3",
+                "Minting the username into NFT, make the username on supported chains unique, turn it into a digital asset, and can be used between multiple chains."
+                a{
+                    class:"text-blue-400",
+                    href:"#",
+                    " Learn More >"
+                }
+            }
+        }
+    }
 }
 
 fn 头部导航(cx: Scope) -> Element {
@@ -53,17 +60,20 @@ fn 头部导航(cx: Scope) -> Element {
                     "NAME-NFT"
                 }      
                 a{
-                    class:"pl-5",
+                    style:"text-underline-offset: 6px;text-decoration-thickness: 2px;text-decoration-color:#3b82f6",
+                    class:"pl-5 hover:underline",
                     href:"#",
                     "How it Work"
                 }
                 a{
-                    class:"pl-5",
+                    style:"text-underline-offset: 6px;text-decoration-thickness: 2px;text-decoration-color:#3b82f6",
+                    class:"pl-5 hover:underline",
                     href:"#",
                     "Development"
                 }
                 a{
-                    class:"pl-5",
+                    style:"text-underline-offset: 6px;text-decoration-thickness: 2px;text-decoration-color:#3b82f6",
+                    class:"pl-5 hover:underline",
                     href:"#",
                     "About"
                 }
@@ -82,7 +92,7 @@ fn 头部导航(cx: Scope) -> Element {
 fn 搜索框(cx: Scope) -> Element {
     cx.render(rsx! {
         居中{
-            class:"pt-10 w-full",        
+            class:"w-full",        
             div{
                 class:"relative mb-6 w-full",
                 div{
@@ -104,7 +114,7 @@ fn 搜索框(cx: Scope) -> Element {
                     focus:outline-none 
                     text-md rounded-lg block pl-10 p-3 
                     focus:ring-1 focus:ring-inset focus:ring-blue-600 
-                    bg-gray-700 border-gray-600 placeholder-gray-300 focus:text-white",
+                    bg-gray-700 border-gray-600 placeholder-gray-400 focus:text-white",
                     placeholder:"Input a username"
                 }
                 
@@ -126,20 +136,104 @@ fn 搜索框(cx: Scope) -> Element {
     })
 }
 
-fn 搜索结果(cx: Scope) -> Element {
-    cx.render(rsx! {
+fn 销售列表(cx: Scope) -> Element {
+    render!{
         行{
             class:"w-full",
             align:Align::between,
             div{
-                class:"text-xl",
+                class:"pl-2 text-lg text-gray-300",
                 "Search Results"
             }
             div{
-                class:"text-xl",
+                class:"text-lg text-gray-300",
+                "Price hiht to low"
+            }
+        }
+        列{
+            class:"w-full m-3",
+            //列表头部
+            列表头部{}
+            for _ in 0..100{
+                列表项{}
+            }
+        }
+    }
+}
+
+fn 列表头部(cx: Scope) -> Element {
+    render!{
+        行{
+            class:"w-full px-3 py-2 bg-gray-700 rounded-tl-lg rounded-tr-lg ",
+            p{
+                class:"w-1/4 text-gray-300 text-sm",
+                "Username"
+            }
+            p{
+                class:"w-1/3 text-gray-300 text-sm",
+                "Price"
+            }
+            p{
+                class:"w-1/4 text-gray-300 text-sm",
+                "Level"
+            }
+            p{
+                class:"w-1/4 text-gray-300 text-sm",
+                "On The Chain"
+            }
+        }
+    }
+}
+
+fn 列表项(cx: Scope) -> Element {
+    render!{
+       a{
+        class:"w-full",
+        href:"#",
+        行{
+            class:"w-full px-3 py-2 
+            mb-px 
+            bg-gray-800 hover:bg-gray-700",
+            p{
+                class:"pl-1 w-1/4 text-md text-white",
+                "com"
+            },
+            p{
+                class:"w-1/3 text-sm text-white",
+                "10.23424eth"
+                p{
+                    class:"text-xs text-gray-400",
+                    "30000$"
+                }
+            },
+            p{
+                class:"w-1/4 text-sm text-white",
+                "Top"
+            }
+            p{
+                class:"w-1/4 text-sm text-white",
+                "Moonbeam"
+            }
+        }
+       }
+        //分割线
+    }
+}
+
+fn 搜索结果(cx: Scope) -> Element {
+    render! {
+        行{
+            class:"w-full",
+            align:Align::between,
+            div{
+                class:"text-lg",
+                "Search Results"
+            }
+            div{
+                class:"text-lg",
                 "Search Results"
             }
         }
        
-    })
+    }
 }
