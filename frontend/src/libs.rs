@@ -2,23 +2,23 @@
 use dioxus::prelude::*;
 
 pub enum Align {
-    center,
-    start,
-    end,
-    around,
-    evenly,
-    between,
+    Center,
+    Start,
+    End,
+    Around,
+    Evenly,
+    Between,
 }
 
 impl Align {
     pub fn getAlign(&self) -> String {
         match self {
-            Align::start => "justify-start".to_string(),
-            Align::center => "justify-center".to_string(),
-            Align::end => "justify-end".to_string(),
-            Align::around => "justify-around".to_string(),
-            Align::evenly => "justify-evenly".to_string(),
-            Align::between => "justify-between".to_string(),
+            Align::Start => "justify-start".to_string(),
+            Align::Center => "justify-center".to_string(),
+            Align::End => "justify-end".to_string(),
+            Align::Around => "justify-around".to_string(),
+            Align::Evenly => "justify-evenly".to_string(),
+            Align::Between => "justify-between".to_string(),
         }
     }
 }
@@ -35,7 +35,7 @@ pub struct ChildrenProps<'a> {
     #[props(default = "")]
     pub class: &'a str,
 
-    #[props(default = Align::start)]
+    #[props(default = Align::Start)]
     pub align: Align,
 
     pub children: Element<'a>,
@@ -43,20 +43,20 @@ pub struct ChildrenProps<'a> {
 
 
 pub fn Padding<'a>(cx: Scope<'a, ValueProps<'a>>) -> Element {
-    cx.render(rsx! {
+    render! {
         div{
             padding: cx.props.value,
             &cx.props.children
         }
-    })
+    }
 }
 
 
 pub fn Margin<'a>(cx: Scope<'a, ValueProps<'a>>) -> Element {
-    cx.render(rsx! {
+    render! {
         div{
             margin: cx.props.value,
             &cx.props.children
         }
-    })
+    }
 }

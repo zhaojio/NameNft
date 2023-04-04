@@ -11,7 +11,7 @@ fn main() {
 }
 
 pub fn app(cx: Scope) -> Element {
-    cx.render(rsx!(
+    render!(
         列{
             class:"w-full",
             头部导航{}
@@ -22,7 +22,7 @@ pub fn app(cx: Scope) -> Element {
                 销售列表{}
             }
         }
-    ))
+    )
 }
 
 fn 中间文字(cx: Scope) -> Element {
@@ -49,10 +49,10 @@ fn 中间文字(cx: Scope) -> Element {
 }
 
 fn 头部导航(cx: Scope) -> Element {
-    cx.render(rsx! {
+    render!{
         行 {
             class: "pl-32 px-5 py-3 bg-gray-800 w-full",
-            align: Align::between,
+            align: Align::Between,
             行{
                 a{
                     class:"text-2xl",
@@ -86,11 +86,11 @@ fn 头部导航(cx: Scope) -> Element {
                 "CONNECT WALLET"
             }
     }
-    })
+    }
 }
 
 fn 搜索框(cx: Scope) -> Element {
-    cx.render(rsx! {
+    render! {
         居中{
             class:"w-full",        
             div{
@@ -133,17 +133,17 @@ fn 搜索框(cx: Scope) -> Element {
                 }
             }
         }
-    })
+    }
 }
 
 fn 销售列表(cx: Scope) -> Element {
     render!{
         行{
             class:"w-full",
-            align:Align::between,
+            align:Align::Between,
             div{
-                class:"pl-2 text-lg text-gray-300",
-                "Search Results"
+                class:"pl-2 text-xl text-white",
+                "Top 1000"
             }
             div{
                 class:"text-lg text-gray-300",
@@ -224,7 +224,7 @@ fn 搜索结果(cx: Scope) -> Element {
     render! {
         行{
             class:"w-full",
-            align:Align::between,
+            align:Align::Between,
             div{
                 class:"text-lg",
                 "Search Results"
