@@ -233,7 +233,6 @@ fn 搜索结果(cx: Scope) -> Element {
                 class:"text-lg",
                 "Search Results"
             }
-        }
-       
+        }       
     }
 }
